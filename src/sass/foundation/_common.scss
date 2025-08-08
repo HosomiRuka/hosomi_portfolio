@@ -1,0 +1,18 @@
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Hind Madurai", sans-serif ,"Noto Sans JP", sans-serif;;
+  scroll-behavior: smooth;
+  scroll-padding: 100px;
+  // font-feature-settings: "palt";
+}
+
+img {
+  width: 100%;
+  vertical-align: bottom;
+}

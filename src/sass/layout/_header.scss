@@ -1,0 +1,146 @@
+@use "global" as *;
+
+.l-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: getVwBase(80, 15, $pc);
+  background: $c-base;
+  z-index: 200;
+}
+
+.l-header__logo {
+  max-width: getVwBase(160, 100, $pc);
+  width: 100%;
+}
+
+.l-header__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  margin: auto;
+}
+
+.l-header__list {
+  display: flex;
+  align-items: center;
+  gap: getVwBase(35, 15, $pc);
+  transition: 0.3s;
+
+  @include sp {
+    flex-direction: column;
+    justify-content: center;
+    gap: 47px;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    margin: auto;
+    width: 75%;
+    height: 100vh;
+    background: $c-main;
+  }
+}
+
+.l-header__list-item {
+  width: fit-content;
+}
+
+.l-header__link {
+  @include font(16, 14, $weight: $medium, $kerning: 0, $lineheight: normal);
+  @include hover;
+
+  @include sp {
+    color: $c-base;
+  }
+}
+
+.l-header__cv {
+  @include hover;
+}
+
+.l-header__cv--sp {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 50;
+  transition: 0.3s;
+}
+
+.l-header__cv-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  @include font(16, 16, $weight: $medium, $kerning: 0, $lineheight: normal);
+  width: 100%;
+  height: 100%;
+  color: $c-base;
+  background: $c-main;
+  padding-top: 33px;
+  padding-bottom: 28px;
+  padding-right: getVwBase(30, 10, $pc);
+  padding-left: getVwBase(30, 10, $pc);
+}
+
+.l-header__list .l-header__cv-link {
+  @include sp {
+    color: $c-main;
+    background: $c-base;
+    border-radius: 6px;
+    font-size: 14px;
+    padding: 18px 14px;
+
+    svg path {
+      fill: $c-main;
+    }
+  }
+}
+
+.l-header__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// ハンバーガー
+.l-header__hamburger {
+  padding: 24px 15px;
+  background: $c-main;
+
+  span {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 10px;
+    background: $c-base;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      left: 0;
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      background: $c-base;
+    }
+
+    &::before {
+      top: -5px;
+    }
+
+    &::after {
+      bottom: -5px;
+    }
+  }
+}

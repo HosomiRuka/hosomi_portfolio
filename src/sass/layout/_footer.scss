@@ -1,0 +1,46 @@
+@use "global" as *;
+
+.l-footer {
+  padding-top: getVwBase(70, 40, $pc);
+  padding-bottom: getVwBase(120, 30, $pc);
+}
+
+.l-footer__logo {
+  max-width: getVwBase(242, 180, $pc);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.l-footer__content {
+  display: flex;
+  justify-content: space-between;
+  gap: getVwBase(100, 50, $pc);
+  width: fit-content;
+  margin: 32px auto;
+  padding-right: 27px;
+}
+
+.l-footer__link {
+  position: relative;
+  text-decoration: underline;
+  @include font(16, 14, $weight: $medium, $kerning: 0, $lineheight: normal);
+  @include hover;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -27px;
+    bottom: 0;
+    margin: auto;
+    width: 17px;
+    height: 17px;
+    background: url(../../img/blog/vector.svg) no-repeat center / cover;
+    transition: 0.3s;
+  }
+}
+
+.l-footer__copy {
+  @include font(16, 16, $weight: $medium, $kerning: 0, $lineheight: normal);
+  text-align: center;
+}

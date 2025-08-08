@@ -1,0 +1,131 @@
+@use "variable" as *;
+
+/*--------------------
+breakpoint
+--------------------*/
+@mixin sp {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+.sp-only {
+  display: inline;
+
+  @include pc {
+    display: none;
+  }
+}
+.pc-only {
+  display: inline;
+  @include sp {
+    display: none;
+  }
+}
+
+/*--------------------
+font
+--------------------*/
+
+@mixin font(
+  $max: null,
+  $min: null,
+  $weight: $medium,
+  $kerning: 0,
+  $lineheight: 1.75
+) {
+  font-size: getVwBase($max, $min, $pc);
+  font-weight: $weight;
+  letter-spacing: calc(#{$kerning} / 1000 * 1em);
+  line-height: $lineheight;
+}
+/*--------------------
+style
+--------------------*/
+
+// ulのlist-style reset
+
+@mixin ulListStyleNone {
+  list-style: none;
+}
+
+@mixin decorationNone {
+  text-decoration: none;
+}
+
+// 共通のセクション幅
+@mixin section {
+  max-width: calc(1040px + 40px);
+  // width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 20px;
+  padding-left: 20px;
+  grid-column: 1 / 2;
+}
+
+// ベースの画面サイズ用
+@function getVwBase($max, $min, $viewportWidth: $vwBase) {
+  @return clamp(#{$min}px, calc($max / $viewportWidth * 100vw), #{$max}px);
+}
+
+// 余分な上下幅消す
+@mixin lineHeight($line-height) {
+  &::before {
+    display: block;
+    width: 0;
+    height: 0;
+    margin-top: calc((1 - #{$line-height}) * 0.5em);
+    content: "";
+  }
+  &::after {
+    display: block;
+    width: 0;
+    height: 0;
+    margin-bottom: calc((1 - #{$line-height}) * 0.5em);
+    content: "";
+  }
+}
+
+// 記事画像中央揃え
+@mixin img {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// 3行以上で...にする
+@mixin ellipsis {
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+// アニメーションスピード
+@mixin transition {
+  transition: 0.3s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+}
+
+/*--------------------
+hover
+--------------------*/
+@mixin hover {
+  transition: 0.7s;
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.7;
+      transition: 0.3s;
+    }
+  }
+}

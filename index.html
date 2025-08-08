@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>細見 るか | ポートフォリオ</title>
+    <meta name="description" content="細見るかのポートフォリオ" />
+
+    <!-- OGP -->
+    <meta property="og:title" content="細見 るか | ポートフォリオサイト" />
+    <meta property="og:description" content="実績とスキルセットを公開中。" />
+    <meta property="og:image" content="./img/ogp.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://portfolio.ruka-hosomi.com/" />
+    <meta property="og:site_name" content="Ruka Hosomi Portfolio" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/svg+xml" href="./img/favicon.svg" />
+    <link rel="alternate icon" type="image/png" href="./img/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./public/css/style.css" />
+  </head>
+  <body>
+    <header class="l-header" role="banner">
+      <!-- ロゴ -->
+      <h1 class="l-header__logo">
+        <a href="/" class="l-header__logo-link">Hosomi Ruka</a>
+      </h1>
+
+      <!-- ハンバーガー -->
+      <button
+        class="l-header__toggle"
+        type="button"
+        aria-controls="global-nav"
+        aria-expanded="false"
+        aria-label="メニューを開く"
+      >
+        <span class="l-header__toggle-bar" aria-hidden="true"></span>
+        <span class="l-header__toggle-bar" aria-hidden="true"></span>
+        <span class="l-header__toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <!-- グローバルナビ -->
+      <nav
+        class="l-header__nav"
+        id="global-nav"
+        aria-label="グローバルナビゲーション"
+      >
+        <ul class="l-header__menu">
+          <li class="l-header__item">
+            <a href="#about" class="l-header__link">About</a>
+          </li>
+          <li class="l-header__item">
+            <a href="#skill" class="l-header__link">Skill</a>
+          </li>
+          <li class="l-header__item">
+            <a href="#works" class="l-header__link">Works</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="l-main">
+      <div class="l-main__kv">
+        <img src="./img/kv.jpg" alt="キービジュアル" />
+      </div>
+    </main>
+    <footer class="l-footer">
+      <small>&copy;2025 hosomi_portfolio</small>
+    </footer>
+  </body>
+</html>
