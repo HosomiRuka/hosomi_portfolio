@@ -1,11 +1,12 @@
 // ローディング
 window.onload = function () {
   const spinner = document.querySelector(".c-loading");
+  document.body.style.overflow = "hidden";
 
-  // Add .loaded to .loading
   setTimeout(() => {
-    // spinner.classList.add("loaded");
-  }, 2000);
+    document.body.style.overflow = "auto";
+    spinner.classList.add("loaded");
+  }, 2500);
 };
 
 // header
