@@ -41,7 +41,6 @@ btn.addEventListener("click", () => {
   targets.forEach((el) => io.observe(el));
 })();
 
-// .p-kvを超えたら .l-header に .is-past-kv を付与
 (() => {
   const header = document.querySelector(".l-header");
   const kv = document.querySelector(".p-kv");
