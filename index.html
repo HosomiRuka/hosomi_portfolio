@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>細見 るか | ポートフォリオ</title>
     <meta name="description" content="細見るかのポートフォリオ" />
@@ -22,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif+JP:wght@200..900&display=swap"
       rel="stylesheet"
     />
 
@@ -33,25 +34,25 @@
     <header class="l-header" role="banner">
       <!-- ロゴ -->
       <h1 class="l-header__logo">
-        <a href="/" class="l-header__logo-link">Hosomi Ruka</a>
+        <a href="/" class="l-header__logo-link">
+          <img src="./img/logo.svg" alt="" />
+        </a>
       </h1>
 
       <!-- ハンバーガー -->
-      <button
-        class="l-header__toggle"
+      <div
+        class="l-header__hamburger sp-only"
         type="button"
         aria-controls="global-nav"
         aria-expanded="false"
         aria-label="メニューを開く"
       >
-        <span class="l-header__toggle-bar" aria-hidden="true"></span>
-        <span class="l-header__toggle-bar" aria-hidden="true"></span>
-        <span class="l-header__toggle-bar" aria-hidden="true"></span>
-      </button>
+        <span class="l-header__hamburger-bar" aria-hidden="true"></span>
+      </div>
 
       <!-- グローバルナビ -->
       <nav
-        class="l-header__nav"
+        class="l-header__nav pc-only"
         id="global-nav"
         aria-label="グローバルナビゲーション"
       >
@@ -67,15 +68,169 @@
           </li>
         </ul>
       </nav>
+
+      <!-- SPナビ -->
+      <ul class="l-header__sp-nav">
+        <li class="l-header__sp-item">
+          <a href="#about" class="l-header__sp-link">About</a>
+        </li>
+        <li class="l-header__sp-item">
+          <a href="#skill" class="l-header__sp-link">Skill</a>
+        </li>
+        <li class="l-header__sp-item">
+          <a href="#works" class="l-header__sp-link">Works</a>
+        </li>
+      </ul>
     </header>
+    <div class="c-loading">
+      <div class="spinner"></div>
+    </div>
 
     <main class="l-main">
-      <div class="l-main__kv">
-        <img src="./img/kv.jpg" alt="キービジュアル" />
+      <div class="p-kv">
+        <h1 class="p-kv__title">Hosomi Ruka<br />Portfolio</h1>
+        <div class="p-kv__decoration"></div>
+        <div class="p-kv__decoration"></div>
       </div>
+
+      <section class="p-about c-fade">
+        <h2 class="c-title">About</h2>
+        <div class="p-about__wrap">
+          <div class="p-about__img">
+            <picture>
+              <source
+                srcset="./img/about/about-pc.png"
+                media="(min-width:1024px)"
+              />
+              <img src="./img/about/about-sp.png" alt="" loading="lazy" />
+            </picture>
+          </div>
+
+          <div class="p-about__content">
+            <h3 class="p-about__name">細見るか</h3>
+            <p class="p-about__text">
+              大阪のIT専門学校を卒業後、在学中からインターンをしていたWeb制作会社に勤務、
+              コーディングとデザインの両方に魅力を感じ、コーダー兼デザインアシスタントとして勤務。<br
+                class="sp-only"
+              />
+              インターンを含め3年ほど在籍後に会社都合で退職。<br
+                class="sp-only"
+              />
+              現在もコーダー兼デザインアシスタントとして勤務中。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="p-skill c-fade">
+        <h2 class="c-title">Skill</h2>
+
+        <ul class="p-skill__list">
+          <li class="p-skill__list-item">
+            <div class="p-skill__img">
+              <img src="./img/skill/skill01.png" alt="HTML5 / pug" />
+            </div>
+            <p class="p-skill__text">HTML 5 / pug</p>
+          </li>
+          <li class="p-skill__list-item">
+            <div class="p-skill__img">
+              <img src="./img/skill/skill02.png" alt="CSS" />
+            </div>
+            <p class="p-skill__text">CSS</p>
+          </li>
+          <li class="p-skill__list-item">
+            <div class="p-skill__img">
+              <img src="./img/skill/skill03.png" alt="Sass" />
+            </div>
+            <p class="p-skill__text">Sass</p>
+          </li>
+          <li class="p-skill__list-item">
+            <div class="p-skill__img">
+              <img src="./img/skill/skill04.png" alt="JavaScript" />
+            </div>
+            <p class="p-skill__text">JavaScript</p>
+          </li>
+          <li class="p-skill__list-item">
+            <div class="p-skill__img">
+              <img src="./img/skill/skill05.png" alt="PHP / WordPress" />
+            </div>
+            <p class="p-skill__text">PHP / Wordpress</p>
+          </li>
+          <li class="p-skill__list-item">
+            <div class="p-skill__img">
+              <img src="./img/skill/skill06.png" alt="Illustrator" />
+            </div>
+            <p class="p-skill__text">Illustrator</p>
+          </li>
+          <li class="p-skill__list-item">
+            <div class="p-skill__img">
+              <img src="./img/skill/skill07.png" alt="Photoshop" />
+            </div>
+            <p class="p-skill__text">Photoshop</p>
+          </li>
+          <li class="p-skill__list-item">
+            <div class="p-skill__img">
+              <img src="./img/skill/skill08.png" alt="XD" />
+            </div>
+            <p class="p-skill__text">XD</p>
+          </li>
+          <li class="p-skill__list-item">
+            <div class="p-skill__img">
+              <img src="./img/skill/skill09.png" alt="Figma" />
+            </div>
+            <p class="p-skill__text">Figma</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="p-works c-fade">
+        <h2 class="c-title">Works</h2>
+
+        <div class="p-works__content">
+          <div class="p-works__img">
+            <img src="./img/works/works01.jpg" alt="" />
+          </div>
+          <ul class="p-works__list">
+            <li class="p-works__list-item">CL：株式会社Glow様</li>
+            <li class="p-works__list-item">期間：2週間</li>
+            <li class="p-works__list-item">担当：ディレクション、デザイン</li>
+          </ul>
+
+          <ul class="p-works__sub">
+            <li class="p-works__sub-item">
+              URL：<a href="" class="p-works__link">https://</a>
+            </li>
+            <li class="p-works__sub-item">
+              デザインデータ：<a href="" class="p-works__link"
+                >https://x.gd/fSvUV</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-works__content">
+          <div class="p-works__img">
+            <img src="./img/works/works02.jpg" alt="" />
+            <img src="./img/works/works03.jpg" alt="" />
+          </div>
+          <ul class="p-works__list">
+            <li class="p-works__list-item">自主制作バナー</li>
+          </ul>
+        </div>
+
+        <h3 class="p-works__text">
+          ※コーディング実績については<br
+            class="sp-only"
+          />非公開の案件が多いため、<br
+            class="sp-only"
+          />面談の際にご説明いたします。
+        </h3>
+      </section>
     </main>
+
     <footer class="l-footer">
-      <small>&copy;2025 hosomi_portfolio</small>
+      <small class="l-footer__copy">&copy;2025 hosomi_portfolio</small>
     </footer>
+    <script src="./public/js/main.js"></script>
   </body>
 </html>

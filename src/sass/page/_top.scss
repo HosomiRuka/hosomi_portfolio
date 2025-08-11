@@ -1,1 +1,290 @@
 @use "global" as *;
+
+// KV
+@keyframes floaty {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  12% {
+    transform: translate(-300px, 200px) rotate(0.4deg);
+  }
+  25% {
+    transform: translate(400px, -100px) rotate(-0.6deg);
+  }
+  38% {
+    transform: translate(-200px, -300px) rotate(1deg);
+  }
+  50% {
+    transform: translate(100px, 0px) rotate(-0.2deg);
+  }
+  63% {
+    transform: translate(-400px, 300px) rotate(0.8deg);
+  }
+  75% {
+    transform: translate(300px, -200px) rotate(-0.9deg);
+  }
+  88% {
+    transform: translate(-100px, 100px) rotate(0.3deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+/* ローディングアニメーション */
+@keyframes sk-scaleout {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* ローディング画面 */
+.c-loading {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffdee4;
+  overflow: hidden;
+  transition: all 1s;
+  z-index: 100;
+}
+.spinner {
+  width: 100px;
+  height: 100px;
+  margin: 200px auto;
+  background-color: #fff;
+  border-radius: 100%;
+  animation: sk-scaleout 1s infinite ease-in-out;
+}
+
+.loaded {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.c-title {
+  color: #ba9ea6;
+  text-align: center;
+  margin-bottom: 40px;
+  @include font(42, 24, $weight: $regular, $kerning: 0, $lineheight: normal);
+}
+
+.p-kv {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  background: #efd8d5;
+  overflow: hidden;
+
+  &__title {
+    position: absolute;
+    bottom: 30px;
+    left: 10%;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    color: #fff;
+    @include font(80, 40, $weight: $regular, $kerning: 42, $lineheight: normal);
+    text-shadow: 3px 2px 20px #efd8d5;
+    z-index: 1;
+  }
+
+  &__decoration {
+    position: absolute;
+    right: 0;
+    background: linear-gradient(to right, #e3fdf5, #ffe6fa);
+    filter: blur(100px);
+    border-radius: 100%;
+
+    &:nth-of-type(1) {
+      width: 600px;
+      height: 600px;
+      top: 0;
+      animation: floaty 60s infinite;
+    }
+
+    &:nth-of-type(2) {
+      width: 431px;
+      height: 431px;
+      right: 10%;
+      bottom: 0;
+      animation: floaty 120s -80s infinite;
+    }
+  }
+}
+
+.p-about {
+  @include section;
+
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include sp {
+      flex-direction: column;
+    }
+  }
+
+  &__img {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 60px;
+      right: 0;
+      bottom: 0;
+      left: 30px;
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: #f5eece;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    max-width: 357px;
+
+    @include sp {
+      margin-top: 40px;
+    }
+  }
+
+  &__name {
+    width: 100%;
+    @include font(26, 20, $weight: $regular, $kerning: 0, $lineheight: 1.6);
+  }
+
+  &__text {
+    width: 100%;
+    margin-top: 16px;
+    @include font(16, 16, $weight: $regular, $kerning: 0, $lineheight: 1.6);
+  }
+}
+
+.p-skill {
+  @include section;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(getVwBase(120, 100, $pc), 1fr)
+    );
+    gap: getVwBase(70, 30, $pc);
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__list-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 200px;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__img {
+    width: 100%;
+    max-width: 120px;
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    @include font(16, 16, $weight: $regular, $kerning: 0, $lineheight: normal);
+  }
+}
+
+.p-works {
+  @include section;
+  font-family: "Noto Serif JP", serif;
+
+  &__list {
+    display: grid;
+    gap: 5;
+    margin-bottom: 20px;
+  }
+
+  &__list-item {
+    @include font(
+      16,
+      16,
+      $weight: $regular,
+      $kerning: 1.75,
+      $lineheight: normal
+    );
+  }
+
+  &__sub {
+    display: grid;
+    gap: 5px;
+  }
+
+  &__sub-item {
+    @include font(
+      12,
+      12,
+      $weight: $regular,
+      $kerning: 1.75,
+      $lineheight: normal
+    );
+  }
+
+  &__content {
+    margin-top: 60px;
+  }
+
+  &__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__text {
+    margin-top: 80px;
+    text-align: center;
+    @include font(20, 18, $weight: $regular, $kerning: 32, $lineheight: normal);
+  }
+}
+
+.l-footer {
+  &__copy {
+    display: block;
+    text-align: center;
+  }
+}
+
+.c-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--dur, 0.6s) var(--easing, ease),
+    transform var(--dur, 0.6s) var(--easing, ease);
+  transition-delay: var(--delay, 0s);
+  will-change: opacity, transform;
+}
+
+/* 画面内に入ったら付与される */
+.is-inview {
+  opacity: 1;
+  transform: none;
+}
