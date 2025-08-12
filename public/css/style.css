@@ -912,7 +912,7 @@ hover
   margin-top: 16px;
   font-size: clamp(16px, 1.1111111111vw, 16px);
   font-weight: 400;
-  letter-spacing: calc(0 / 1000 * 1em);
+  letter-spacing: calc(32 / 1000 * 1em);
   line-height: 1.6;
 }
 
