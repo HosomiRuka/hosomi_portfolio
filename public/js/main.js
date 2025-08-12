@@ -9,8 +9,9 @@ window.addEventListener("load", () => {
   }
 
   // 初回表示
-  document.documentElement.classList.add("is-locked"); // スクロール固定
+  document.body.style.overflow = "hidden";
   setTimeout(() => {
+    document.body.style.overflow = "auto";
     document.documentElement.classList.remove("is-locked");
     spinner?.classList.add("loaded");
     sessionStorage.setItem("seen_loading", "1");
