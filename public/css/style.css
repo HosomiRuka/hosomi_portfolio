@@ -812,7 +812,7 @@ hover
   font-weight: 400;
   letter-spacing: calc(42 / 1000 * 1em);
   line-height: normal;
-  text-shadow: 3px 2px 20px #efd8d5;
+  text-shadow: 3px 2px 6px #efd8d5;
   z-index: 1;
 }
 .p-kv__decoration {

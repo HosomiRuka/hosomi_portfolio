@@ -93,7 +93,7 @@
     height: fit-content;
     color: #fff;
     @include font(80, 40, $weight: $regular, $kerning: 42, $lineheight: normal);
-    text-shadow: 3px 2px 20px #efd8d5;
+    text-shadow: 3px 2px 6px #efd8d5;
     z-index: 1;
   }
 
