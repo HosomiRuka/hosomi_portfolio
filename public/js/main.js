@@ -14,7 +14,7 @@ window.addEventListener("load", () => {
     document.documentElement.classList.remove("is-locked");
     spinner?.classList.add("loaded");
     sessionStorage.setItem("seen_loading", "1");
-  }, 2500);
+  }, 2600);
 });
 
 // header
