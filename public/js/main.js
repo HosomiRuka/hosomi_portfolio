@@ -1,21 +1,38 @@
-// ローディング
-window.onload = function () {
+// 初回ロードだけローディングを出す（同じタブでは再表示しない）
+window.addEventListener("load", () => {
   const spinner = document.querySelector(".c-loading");
-  document.body.style.overflow = "hidden";
 
+  // 2回目以降（同タブ）は即非表示
+  if (sessionStorage.getItem("seen_loading")) {
+    spinner?.classList.add("loaded");
+    return;
+  }
+
+  // 初回表示
+  document.documentElement.classList.add("is-locked"); // スクロール固定
   setTimeout(() => {
-    document.body.style.overflow = "auto";
-    spinner.classList.add("loaded");
+    document.documentElement.classList.remove("is-locked");
+    spinner?.classList.add("loaded");
+    sessionStorage.setItem("seen_loading", "1");
   }, 2500);
-};
+});
 
 // header
 const btn = document.querySelector(".l-header__hamburger");
 const nav = document.querySelector(".l-header__sp-nav");
+const links = document.querySelectorAll(".l-header__sp-link");
 
 btn.addEventListener("click", () => {
   btn.classList.toggle("is-open-hamburger");
   nav.classList.toggle("is-open-nav");
+});
+
+// 各リンクをクリックしたらメニューを閉じる
+links.forEach((link) => {
+  link.addEventListener("click", () => {
+    btn.classList.remove("is-open-hamburger");
+    nav.classList.remove("is-open-nav");
+  });
 });
 
 // feadin
