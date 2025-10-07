@@ -157,7 +157,7 @@
 
   &__content {
     width: 100%;
-    max-width: 357px;
+    max-width: 50%;
 
     @include sp {
       margin-top: 40px;
@@ -172,7 +172,7 @@
   &__text {
     width: 100%;
     margin-top: 16px;
-    @include font(16, 16, $weight: $regular, $kerning: 32, $lineheight: 1.6);
+    @include font(16, 16, $weight: $regular, $kerning: 36, $lineheight: 1.8);
   }
 }
 
