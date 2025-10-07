@@ -421,16 +421,9 @@ style
 hover
 --------------------*/
 .l-header {
-  max-width: 960px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: clamp(80px, 12.5vw, 180px);
-  margin-bottom: clamp(60px, 12.5vw, 180px);
-  padding-right: 20px;
-  padding-left: 20px;
   margin-bottom: 0;
   position: fixed;
-  top: 15px;
+  top: 0;
   right: 0;
   left: 0;
   margin: auto;
@@ -446,7 +439,9 @@ hover
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 10px 60px;
   z-index: 100;
+  background: #fff;
 }
 .l-header__logo {
   max-width: clamp(40px, 4.1666666667vw, 60px);
@@ -486,7 +481,7 @@ hover
   width: fit-content;
 }
 .l-header__link {
-  color: #fff;
+  color: #646361;
   font-size: clamp(16px, 1.3888888889vw, 20px);
   font-weight: 500;
   letter-spacing: calc(32 / 1000 * 1em);
@@ -512,7 +507,7 @@ hover
   width: 30px;
   height: 2px;
   border-radius: 10px;
-  background: #fff;
+  background: #646361;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -525,7 +520,7 @@ hover
   width: 30px;
   height: 2px;
   border-radius: 10px;
-  background: #fff;
+  background: #646361;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -605,33 +600,6 @@ hover
   transition: 0.3s;
 }
 
-.is-past-kv::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  -webkit-backdrop-filter: blur(3px);
-          backdrop-filter: blur(3px);
-  z-index: -1;
-}
-@media (max-width: 1023px) {
-  .is-past-kv::after {
-    display: none;
-  }
-}
-.is-past-kv a {
-  color: #646361;
-}
-.is-past-kv .l-header__hamburger span,
-.is-past-kv .l-header__hamburger::before,
-.is-past-kv .l-header__hamburger::after {
-  background: #646361;
-}
-
 .l-footer {
   padding-top: clamp(20px, 1.3888888889vw, 20px);
   padding-bottom: clamp(20px, 1.3888888889vw, 20px);
@@ -645,7 +613,7 @@ hover
   text-align: center;
 }
 
-/* KV */
+/* KV アニメーション*/
 @-webkit-keyframes floaty {
   0% {
     -webkit-transform: translate(0, 0) rotate(0deg);
@@ -808,11 +776,11 @@ hover
   height: -moz-fit-content;
   height: fit-content;
   color: #fff;
+  text-shadow: 0px 4px 7px rgba(154, 117, 145, 0.3);
   font-size: clamp(40px, 5.5555555556vw, 80px);
   font-weight: 400;
   letter-spacing: calc(42 / 1000 * 1em);
   line-height: normal;
-  text-shadow: 3px 2px 6px #efd8d5;
   z-index: 1;
 }
 .p-kv__decoration {
@@ -982,6 +950,12 @@ hover
   padding-left: 20px;
   font-family: "Noto Serif JP", serif;
 }
+.p-works__title {
+  font-size: clamp(24px, 1.6666666667vw, 24px);
+  font-weight: 400;
+  letter-spacing: calc(1.75 / 1000 * 1em);
+  line-height: normal;
+}
 .p-works__list {
   display: grid;
   gap: 5;
@@ -1054,5 +1028,39 @@ hover
   opacity: 1;
   -webkit-transform: none;
           transform: none;
+}
+
+html,
+body {
+  cursor: none;
+}
+
+.cursor,
+.follower {
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.cursor {
+  width: 12px;
+  height: 12px;
+  background-color: #ba9ea6;
+  z-index: 1001;
+}
+
+.follower {
+  width: 46px;
+  height: 46px;
+  background-color: rgba(255, 222, 228, 0.5);
+  z-index: 1000;
+  -webkit-transition: -webkit-transform linear 0.2s;
+  transition: -webkit-transform linear 0.2s;
+  transition: transform linear 0.2s;
+  transition: transform linear 0.2s, -webkit-transform linear 0.2s;
 }
 /*# sourceMappingURL=map/style.css.map */

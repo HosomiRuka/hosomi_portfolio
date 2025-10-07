@@ -31,6 +31,9 @@
     <link rel="stylesheet" href="./public/css/style.css" />
   </head>
   <body>
+    <div id="cursor" class="cursor"></div>
+    <div id="follower" class="follower"></div>
+
     <header class="l-header" role="banner">
       <!-- ロゴ -->
       <h1 class="l-header__logo">
@@ -81,11 +84,11 @@
     </div>
 
     <main class="l-main">
-      <div class="p-kv">
+      <section class="p-kv">
         <h1 class="p-kv__title">Hosomi Ruka<br />Portfolio</h1>
         <div class="p-kv__decoration"></div>
         <div class="p-kv__decoration"></div>
-      </div>
+      </section>
 
       <section id="about" class="p-about c-fade">
         <h2 class="c-title">About</h2>
@@ -212,8 +215,24 @@
             <img src="./img/works/works02.jpg" alt="" />
             <img src="./img/works/works03.jpg" alt="" />
           </div>
+          <h3 class="p-works__title">自主制作バナー</h3>
           <ul class="p-works__list">
-            <li class="p-works__list-item">自主制作バナー</li>
+            <li class="p-works__list-item">
+              <p>▼ 架空の七夕バナー</p>
+              <p>
+                第7回目の開催ということで、一定の人気と認知度があるイベントだと想定し、タイトルを大きく目立たせることで「このイベントまたやるのか！」と瞬時に気づき、参加意欲を喚起できるようなデザインを意識しました。
+                七夕の夜空を連想させるビジュアルをベースにしつつ、視認性を損なわないようジャンプ率に配慮し、印象的でありながら読みやすい構成に仕上げました。
+              </p>
+            </li>
+            <br />
+            <li class="p-works__list-item">
+              <p>▼ 架空のライブイベントポスター</p>
+              <p>
+                制作時21回続く有名なイベントだったため、タイトルを強調し、既存のファンにも認知されやすく、初めて見る人の目も引くようなインパクトのあるデザインにしました。
+                「アーティストを目立たせたい」との要望を受け、人物写真を大きく配置し、背景要素を抑えることで被写体が際立つ構成に。
+                また、時間帯や会場などの情報は線を用いてグループ化し、知りたい情報が整理された状態で伝わるように工夫。遠目から見ても煩雑にならない、視認性の高いデザインを意識しました。間4時間
+              </p>
+            </li>
           </ul>
         </div>
       </section>
@@ -222,6 +241,7 @@
     <footer class="l-footer">
       <small class="l-footer__copy">&copy;2025 hosomi_portfolio</small>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="./public/js/main.js"></script>
   </body>
 </html>

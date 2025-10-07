@@ -73,3 +73,36 @@ links.forEach((link) => {
 
   io.observe(kv);
 })();
+
+// マウスストーカー
+const cursor = document.getElementById("cursor");
+const follower = document.getElementById("follower");
+const allLinks = document.getElementsByClassName("p-works__link");
+
+const pos = { x: 0, y: 0 }; // カーソルの座標
+const mouse = { x: 0, y: 0 }; // マウスカーソルの座標
+const speed = 0.5; // 0.01〜1 数値が大きいほど早い
+
+// カーソルとフォロワーの座標を設定
+const cursorSetX = gsap.quickSetter(cursor, "x", "px");
+const cursorSetY = gsap.quickSetter(cursor, "y", "px");
+const followerSetX = gsap.quickSetter(follower, "x", "px");
+const followerSetY = gsap.quickSetter(follower, "y", "px");
+
+// マウスカーソル座標を取得
+document.addEventListener("mousemove", (e) => {
+  mouse.x = e.pageX;
+  mouse.y = e.pageY;
+});
+
+// レンダリング
+gsap.ticker.add(() => {
+  const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
+  pos.x += (mouse.x - pos.x) * dt;
+  pos.y += (mouse.y - pos.y) * dt;
+
+  cursorSetX(pos.x);
+  cursorSetY(pos.y);
+  followerSetX(pos.x);
+  followerSetY(pos.y);
+});
